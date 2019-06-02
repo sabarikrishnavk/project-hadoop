@@ -13,12 +13,9 @@ public class SongSortPartitioner extends Partitioner<SongDayScoreKeyWritable,Nul
 
    
   public int getPartition(SongDayScoreKeyWritable key, NullWritable value, int numReduceTasks) {
-	  try{
-		  int date = Integer.parseInt( key.getDateString().split("-")[2]);
+	 
+		  int date = DateUtil.getDay(key.getDateString());
 		  return (date % numReduceTasks);
-	  }catch(Exception e){
-		  System.out.println("SongSortPartitioner : "+ key);
-		  return 0;
-	  }
+		 
   }
 }
