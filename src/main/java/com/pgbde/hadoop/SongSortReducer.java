@@ -18,8 +18,15 @@ public class SongSortReducer extends Reducer<SongDayScoreKeyWritable, NullWritab
 		for ( NullWritable value : values) {
 			count++;
 			if(count <=100){
+				
+				StringBuilder output = new StringBuilder();
+				output.append(key.getSongId())
+					.append(",")
+					.append(count)
+					.append(",")
+					.append(DateUtil.getNextDateString(key.getDateString()));
 				//System.out.println("sorted key : " +key +" count" +count);
-				context.write(new Text(key.getSongId()+","+count+","+key.getDateString()),NullWritable.get());
+				context.write(new Text(output.toString()),NullWritable.get());
 			}
 		}
 

@@ -60,7 +60,7 @@ public class MusicSortJob extends Configured implements Tool {
 			 
 			
 			//Second job to sort the songs per day.
-			job= Job.getInstance(conf, "Song sort job");
+			job= Job.getInstance(conf, "Music sort job");
 			job.setJarByClass(MusicSortJob.class);
 
 			job.setMapperClass(SongSortMapper.class);

@@ -21,7 +21,8 @@ public class SongScoreMapper  extends
 //			String userId = split[1];
 //			String timestamp = split[2];
 			Integer time = Integer.parseInt(split[3]);
-//			String dateString = split[4]; 	
+//			String dateString = split[4]; 
+			
 			double result = (1-dampingFactor)* (23-time);
 			DoubleWritable score =  new DoubleWritable(result);
 			
